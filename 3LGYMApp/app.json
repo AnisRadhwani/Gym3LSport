@@ -1,0 +1,64 @@
+{
+  "expo": {
+    "name": "3lgym",
+    "slug": "3lgym",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/images/icon.png",
+    "scheme": "3lgym",
+    "userInterfaceStyle": "automatic",
+    "newArchEnabled": false,
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.anis002.gym3lsport"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/images/icon2.png",
+        "backgroundColor": "#ffffff"
+      },
+      "edgeToEdgeEnabled": false,
+      "package": "com.anis002.gym3lsport",
+      "googleServicesFile": "./google-services.json",
+      "useNextNotificationsApi": true,
+      "softwareKeyboardLayoutMode": "resize"
+    },
+    "web": {
+      "bundler": "metro",
+      "output": "static",
+      "favicon": "./assets/images/favicon.png"
+    },
+    "plugins": [
+      "expo-router",
+      [
+        "expo-splash-screen",
+        {
+          "image": "./assets/images/icon.png",
+          "imageWidth": 200,
+          "resizeMode": "contain",
+          "backgroundColor": "#ffffff"
+        }
+      ],
+      [
+        "expo-notifications",
+        {
+          "icon": "./assets/images/notification-icon.png",
+          "color": "#3B82F6",
+          "sounds": ["./assets/sounds/notification.wav"],
+          "androidMode": "default",
+          "androidCollapsedTitle": "3lgym",
+          "iosDisplayInForeground": true
+        }
+      ]
+    ],
+    "experiments": {
+      "typedRoutes": true
+    },
+    "owner": "anis002",
+    "extra": {
+      "eas": {
+        "projectId": "8cfd5e53-bbcc-4b79-a98d-08c26f56da95"
+      }
+    }
+  }
+}

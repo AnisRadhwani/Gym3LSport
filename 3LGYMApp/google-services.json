@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "345817903205",
+    "project_id": "lgym-badb1",
+    "storage_bucket": "lgym-badb1.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:345817903205:android:1de14b0b233b61facb168c",
+        "android_client_info": {
+          "package_name": "com.anis002.gym3l"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyByJOmu2xCWHKadBc_DnMjQ9JeobVnR65w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:345817903205:android:86f2f4c240ef0ed4cb168c",
+        "android_client_info": {
+          "package_name": "com.anis002.gym3lsport"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyByJOmu2xCWHKadBc_DnMjQ9JeobVnR65w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "2"
+}

@@ -1,0 +1,67 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // SETTINGS: Anyone can read, only admins can write
+    match /settings/{document=**} {
+      allow read: if true;
+      allow write: if request.auth != null && isAdmin();
+    }
+
+    // USERS: Authenticated users can read any profile. Users can update their own. Admins can do everything.
+    match /users/{userId} {
+      allow read: if request.auth != null; // ✅ Anyone logged in can read any user profile
+      allow update: if request.auth != null && request.auth.uid == userId; // ✅ Users can update their own
+      allow create: if request.auth != null && request.auth.uid == userId;
+      allow write, delete: if isAdmin(); // ✅ Admins can do everything
+    }
+
+    // COACHES: Anyone logged in can read, only admins can write/delete
+    match /coaches/{coachId} {
+      allow read: if request.auth != null;
+      allow write, delete: if isAdmin();
+    }
+
+    // CATEGORIES: Anyone logged in can read (e.g. profile shows category names). Only admins can create/update/delete.
+    match /categories/{categoryId} {
+      allow read: if request.auth != null;
+      allow create, update, delete: if isAdmin();
+    }
+
+    // EVENTS: Anyone logged in can read, admins can write/delete, and authenticated users can create/delete for recurring events
+    match /events/{eventId} {
+      allow read: if request.auth != null;
+      allow write, delete: if isAdmin();
+      
+      // Allow authenticated users to create events for recurring event processing
+      allow create: if request.auth != null && 
+                     (isAdmin() || 
+                      (request.resource.data.isRecurring == true || 
+                       request.resource.data.isRecurringProcessed == false));
+      
+      // Allow authenticated users to delete events for recurring event processing
+      allow delete: if request.auth != null && 
+                     (isAdmin() || 
+                      (resource.data.isRecurring == true));
+      
+      // Allow users to update their own interest in events
+      allow update: if request.auth != null && 
+                    (isAdmin() || 
+                     (request.resource.data.diff(resource.data).affectedKeys().hasOnly(['interestedUsers'])) ||
+                     (request.resource.data.isRecurringProcessed != resource.data.isRecurringProcessed));
+    }
+
+    // NOTIFICATIONS: Anyone logged in can read, only admins can write, but any authenticated user can delete
+    match /notifications/{notificationId} {
+      allow read: if request.auth != null;
+      allow create, update: if isAdmin();
+      allow delete: if request.auth != null; // Allow any authenticated user to delete notifications
+    }
+
+    // Helper function to check if user is admin
+    function isAdmin() {
+      return request.auth != null &&
+             get(/databases/$(database)/documents/users/$(request.auth.uid)).data.isAdmin == true;
+    }
+  }
+} 

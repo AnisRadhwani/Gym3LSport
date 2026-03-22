@@ -1,0 +1,56 @@
+{
+  "common": {
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "edit": "Edit",
+    "save": "Save",
+    "back": "Back",
+    "tryAgain": "Try Again"
+  },
+  "events": {
+    "title": "Events",
+    "today": "Today",
+    "noEvents": "No events",
+    "eventCount": "{{count}} event",
+    "eventCountPlural": "{{count}} events",
+    "notificationScheduled": "Notification Scheduled",
+    "notificationScheduledMessage": "You'll receive a notification for \"{{eventTitle}}\" at {{time}} (2 hours before the event)"
+  },
+  "home": {
+    "welcome": "Welcome",
+    "readyWorkout": "Ready for your workout?",
+    "openFrom": "Open from",
+    "openNow": "Open Now",
+    "closedNow": "Closed Now",
+    "availableCoaches": "Available Coaches",
+    "noCoaches": "No coaches available",
+    "todayEvents": "Today's Events",
+    "signInPrompt": "Sign in to see real-time data and save your interests",
+    "loading": "Loading...",
+    "tryAgain": "Try Again",
+    "notificationScheduled": "Notification Scheduled",
+    "notificationScheduledMessage": "You'll receive a notification for \"{{eventTitle}}\" at {{time}} (2 hours before the event)"
+  },
+  "coach": {
+    "schedule": "Schedule",
+    "upcomingEvents": "Upcoming Events",
+    "noEvents": "No upcoming events",
+    "notificationScheduled": "Notification Scheduled",
+    "notificationScheduledMessage": "You'll receive a notification for \"{{eventTitle}}\" at {{time}} (2 hours before the event)"
+  },
+  "admin": {
+    "events": {
+      "deleteEvent": "Delete Event",
+      "deleteConfirm": "Are you sure you want to delete this event?",
+      "deleteSuccess": "Event deleted successfully",
+      "deleteError": "Failed to delete event",
+      "errorLoading": "Failed to load events",
+      "noEventsScheduled": "No events scheduled",
+      "addEvent": "Add Event",
+      "recurringToggleError": "Failed to toggle recurring status"
+    }
+  }
+} 
