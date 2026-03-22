@@ -1,4 +1,5 @@
-# Dependencies
+# Dependencies (root and app — never commit)
+node_modules/
 3LGYMApp/node_modules/
 
 # Expo
